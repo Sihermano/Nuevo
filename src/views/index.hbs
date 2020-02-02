@@ -1,0 +1,79 @@
+{{!-- <div class="col-md-6 offset-md-3">
+    <div class="card-body">
+        {{#if analytics}}
+        <h1>Hay datos perro</h1>
+        {{else}}
+        <h1>No hay datos</h1>
+        {{/if}}
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+        </tbody>
+    </table>
+</div> --}}
+
+<div class="col-md-10">
+    <div class="card">
+        <div class="card-header">
+            <h1>Analytics</h1>
+        </div>
+        <div class="card-body">
+            {{#if analytics}}
+            <ul>
+                <h3>Registros hasta el momento</h3>
+                {{#each analytics}}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{location}}/
+                    {{water}} /
+                    {{electicity}} 
+                </li>
+                {{/each}}
+            </ul>
+            {{else}}
+            <h1>No hay datos</h1>
+            {{/if}}
+        </div>
+        <div class="card-footer">
+            <form action="/new-data" method="POST">
+                <div class="form-group">
+                    <input type="text" name="location" placeholder="location" class="form-control" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="water" placeholder="water" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="electicity" placeholder="electicity" class="form-control">
+                </div>
+                <button class="btn btn-primary btn-block">
+                    Add
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
